@@ -1,22 +1,16 @@
-import {StyleProp, Text, TextInput, View, ViewStyle} from 'react-native';
+import {Text, TextInput, View} from 'react-native';
 import React from 'react';
-import {Styles} from './textInput.styles';
 import {palette} from '../../assets/palette/palette';
+import {Styles} from './TextInput.styles';
+import {TTextInputProps} from './TextInput.types';
 
-interface TextInputProps {
-  onChangeText: (e: string) => void;
-  value: string;
-  placeholder: string;
-  containerStyles?: StyleProp<ViewStyle>;
-  isSecure?: boolean;
-}
 const TextInputCustom = ({
   onChangeText,
   value,
   placeholder,
   containerStyles,
   isSecure,
-}: TextInputProps) => {
+}: TTextInputProps) => {
   return (
     <View style={[Styles.borderBottom, containerStyles]}>
       <Text

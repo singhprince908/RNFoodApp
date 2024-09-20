@@ -4,7 +4,8 @@ import {Styles} from './loginScreen.styles';
 import {chefHat} from '../../assets';
 import {section} from '../../constants/constants';
 import {s} from 'react-native-size-matters';
-import TextInputCustom from '../../components/text-input/textInput';
+import TextInputCustom from '../../components/text-input/TextInput';
+import {useNavigation} from '@react-navigation/native';
 
 const LoginScreen = () => {
   const [selectedSection, setSelectedSection] = useState(section.login);
@@ -13,7 +14,7 @@ const LoginScreen = () => {
   const [mobileNumber, setMobileNumber] = useState('');
   const [createPassword, setCreatePassword] = useState('');
   const [name, setName] = useState('');
-
+  const navigation = useNavigation();
   return (
     <View style={Styles.container}>
       <View style={[Styles.firstHalf, Styles.shadowBottom]}>
@@ -94,7 +95,11 @@ const LoginScreen = () => {
 
         <View style={Styles.flex} />
         <View style={Styles.btnContainer}>
-          <TouchableOpacity style={Styles.btn}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Catalogue');
+            }}
+            style={Styles.btn}>
             <Text style={Styles.text}>
               {selectedSection === section.login ? 'Login' : 'SignUp'}
             </Text>
