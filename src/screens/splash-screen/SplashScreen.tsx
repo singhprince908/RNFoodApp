@@ -1,11 +1,11 @@
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {Styles} from './initialScreen.styles';
+import {Styles} from './SplashScreen.styles';
 import {chefHat, imgIntro} from '../../assets';
 import {useNavigation} from '@react-navigation/native';
 // import {palette} from '../../assets/palette/palette';
 
-const InitialScreen = () => {
+const SplashScreen = () => {
   const navigation = useNavigation();
   return (
     <View style={Styles.container}>
@@ -31,4 +31,4 @@ const InitialScreen = () => {
   );
 };
 
-export default InitialScreen;
+export default SplashScreen;
