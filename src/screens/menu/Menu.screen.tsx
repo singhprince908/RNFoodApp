@@ -36,7 +36,8 @@ const Menu = () => {
         {/* Orders */}
         <TouchableOpacity
           onPress={() => {
-            // navigation.navigate('Login');
+            navigation.goBack();
+            navigation.navigate('OrderScreen');
           }}
           style={Styles.btn}>
           <Buy />

@@ -5,34 +5,23 @@ import {palette} from '../../assets/palette/palette';
 
 export const Styles = StyleSheet.create({
   card: {
-    height: s(210),
-    width: s(184),
-    backgroundColor: 'white',
+    backgroundColor: palette.white,
     margin: s(30),
     borderRadius: s(20),
-    alignItems: 'center',
-    top: s(50),
-    marginBottom: s(90),
+    flexDirection: 'row',
+    padding: s(12),
+    gap: s(8),
   },
-  foodHeading: {
-    alignItems: 'center',
-    width: '100%',
-    position: 'absolute',
-    top: s(80),
-    padding: s(10),
-    textAlign: 'center',
-  },
+  foodHeading: {justifyContent: 'center', gap: s(6)},
   textH: {
     fontFamily: fonts.sfRoundedSemibold,
-    fontSize: s(22),
+    fontSize: s(17),
     textAlign: 'center',
   },
   price: {
     fontFamily: fonts.sfRoundedSemibold,
-    fontSize: s(17),
-    textAlign: 'center',
+    fontSize: s(15),
     color: palette.coral,
-    marginTop: s(15),
   },
   qtyContainer: {
     backgroundColor: palette.coral,
