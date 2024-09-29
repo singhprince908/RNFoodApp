@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -6,50 +7,28 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {
-  Cart,
-  FoodPlate,
-  FoodPlate2,
-  FoodPlate3,
-  FoodPlate4,
-  MenuIcon,
-  Search,
-} from '../../assets';
-import Card from '../../components/card/Card';
-import {Styles} from './CatalogueScreen.styles';
 import {useNavigation} from '@react-navigation/native';
-import {img} from '../../constants/constants';
+import Config from 'react-native-config';
+import {Cart, MenuIcon, Search} from '../../assets';
+import Card from '../../components/card/Card';
 import {endpoints} from '../../api/endpoints';
-type CatalogueDataItem = {
-  title: string;
-  price: string;
-  img: string;
-};
+import {categories} from '../../constants/constants';
+import {Styles} from './CatalogueScreen.styles';
+import {CatalogueDataItem} from './CatalogueScreen.type';
+
 const CatalogueScreen = () => {
   const [chosenCategory, setChosenCategory] = useState('Foods');
-  const categories = [
-    'Foods',
-    'Drinks',
-    'Snacks',
-    'Sauce',
-    'Foods1',
-    'Drinks1',
-    'Snacks1',
-    'Sauce1',
-  ];
   const [catalogueData, setCatalogueData] = useState<Array<CatalogueDataItem>>(
     [],
   );
   const getCatalogueFood = async () => {
     const res = await fetch(endpoints.getCatalogue);
     const resJson = await res.json();
-    console.log(resJson);
     setCatalogueData(
       resJson.data.map((item: any) => ({
         title: item.title,
-        price: item.price,
-        img: item.Image,
+        price: `₹ ${item.price}`,
+        img: `${Config.API_BASE_URL}/${item.image.url}`,
       })),
     );
   };
@@ -58,8 +37,8 @@ const CatalogueScreen = () => {
     getCatalogueFood();
   }, []);
   return (
-    <ScrollView style={Styles.container}>
-      <SafeAreaView>
+    <SafeAreaView>
+      <ScrollView>
         <View style={Styles.header}>
           <TouchableOpacity
             onPress={() => {
@@ -114,13 +93,9 @@ const CatalogueScreen = () => {
           {catalogueData.map(item => (
             <Card img={item.img} price={item.price} title={item.title} />
           ))}
-          {/* <Card img={FoodPlate} price="Rs 100" title="Veggie tomato mix" />
-          <Card img={FoodPlate2} price="Rs 200" title="Veggie tomato mix" />
-          <Card img={FoodPlate3} price="Rs 300" title="Veggie tomato mix" />
-          <Card img={FoodPlate4} price="Rs 400" title="Veggie tomato mix" /> */}
         </ScrollView>
-      </SafeAreaView>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

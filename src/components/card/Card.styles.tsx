@@ -5,7 +5,7 @@ import {palette} from '../../assets/palette/palette';
 
 export const Styles = StyleSheet.create({
   card: {
-    height: s(210),
+    height: s(230),
     width: s(184),
     backgroundColor: 'white',
     margin: s(30),
@@ -13,6 +13,24 @@ export const Styles = StyleSheet.create({
     alignItems: 'center',
     top: s(50),
     marginBottom: s(90),
+  },
+  img:{
+    backgroundColor: 'red',
+    width: s(128),
+    height: s(128),
+    borderRadius: s(128),
+    top: -s(50),
+  },
+  qtyContainerAdd: {
+    backgroundColor: palette.coral,
+    flexDirection: 'row',
+    gap: s(6),
+    position: 'absolute',
+    bottom: s(12),
+    right: s(12),
+    padding: s(2),
+    paddingHorizontal: s(8),
+    borderRadius: s(30),
   },
   foodHeading: {
     alignItems: 'center',
@@ -42,8 +60,8 @@ export const Styles = StyleSheet.create({
     bottom: s(12),
     right: s(12),
     padding: s(2),
-    paddingHorizontal: s(8),
+    paddingHorizontal: s(14),
     borderRadius: s(30),
   },
-  qtyText: {color: palette.white},
+  qtyText: {color: palette.white, fontSize: s(14)},
 });

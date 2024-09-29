@@ -4,8 +4,8 @@ import {Styles} from './loginScreen.styles';
 import {chefHat} from '../../assets';
 import {section} from '../../constants/constants';
 import {s} from 'react-native-size-matters';
-import TextInputCustom from '../../components/text-input/TextInput';
 import {useNavigation} from '@react-navigation/native';
+import { TextInputCustom } from '../../components';
 
 const LoginScreen = () => {
   const [selectedSection, setSelectedSection] = useState(section.login);

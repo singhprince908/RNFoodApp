@@ -1,23 +1,17 @@
-import {
-  Image,
-  Pressable,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import React, {useState} from 'react';
-import {Styles} from './Orders.styles';
-import {BackIcon, Cart, FoodPlate, ShoppingCart, chefHat} from '../../assets';
-import {section} from '../../constants/constants';
-import {s} from 'react-native-size-matters';
-import TextInputCustom from '../../components/text-input/TextInput';
+import React from 'react';
+import {Pressable, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {BackIcon, ShoppingCart} from '../../assets';
 import {Button, CartCard} from '../../components';
 import {palette} from '../../assets/palette/palette';
+import {useAppSelector} from '../../store/hooks';
+import {Styles} from './Orders.styles';
 
 const OrderScreen = () => {
   const navigation = useNavigation();
+  const count = useAppSelector(state => state);
+  const cart = count.cart;
+
   return (
     <SafeAreaView style={Styles.container}>
       <View style={Styles.header}>
@@ -30,14 +24,18 @@ const OrderScreen = () => {
         </Pressable>
         <Text style={Styles.headerText}>{'Order'}</Text>
       </View>
-      {true ? (
-        <>
-          <CartCard
-            img={FoodPlate}
-            title={'Veggie tomato mix'}
-            price={'1900'}
-          />
-        </>
+
+      {cart.length ? (
+        <ScrollView style={Styles.mTop}>
+          {cart.map(item => (
+            <CartCard
+              img={item.img}
+              qty={item.qty}
+              title={item.title}
+              price={item.price}
+            />
+          ))}
+        </ScrollView>
       ) : (
         <>
           <View style={Styles.innerContainer}>

@@ -6,9 +6,10 @@ interface CartObject {
   title: string;
   price: string;
   qty: number;
+  img?: string;
 }
 
-// Define the initial state using that type
+// Initial State
 const initialState: Array<CartObject> = [];
 
 export const cartSlice = createSlice({
@@ -42,7 +43,6 @@ export const cartSlice = createSlice({
           return state.filter(item => item.title !== action.payload.title);
         }
       }
-      // return state.filter(item => item.title !== action.payload);
     },
   },
 });

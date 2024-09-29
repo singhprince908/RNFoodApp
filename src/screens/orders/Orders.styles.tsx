@@ -11,6 +11,7 @@ export const Styles = StyleSheet.create({
     fontFamily: fonts.sfRoundedHeavy,
     fontSize: s(22),
   },
+  mTop:{marginTop:s(30)},
   marginRight: {marginRight: s(0)},
   subtext: {
     fontFamily: fonts.sfRoundedLight,

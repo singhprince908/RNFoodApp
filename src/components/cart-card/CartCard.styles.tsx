@@ -6,11 +6,18 @@ import {palette} from '../../assets/palette/palette';
 export const Styles = StyleSheet.create({
   card: {
     backgroundColor: palette.white,
-    margin: s(30),
+    marginHorizontal: s(30),
+    margin: s(12),
     borderRadius: s(20),
     flexDirection: 'row',
     padding: s(12),
     gap: s(8),
+  },
+  img:{
+    width: s(69),
+    height: s(69),
+    borderRadius: s(120),
+    backgroundColor: 'red',
   },
   foodHeading: {justifyContent: 'center', gap: s(6)},
   textH: {

@@ -1,11 +1,4 @@
-import {
-  StyleProp,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import {StyleProp, Text, TouchableOpacity, ViewStyle} from 'react-native';
 import React from 'react';
 import {Styles} from './Button.styles';
 

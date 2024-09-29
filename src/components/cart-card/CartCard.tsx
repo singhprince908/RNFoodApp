@@ -1,38 +1,41 @@
-import {Image, ImageSourcePropType, Text, View} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import React from 'react';
+import {useAppDispatch} from '../../store/hooks';
+import {addCart, removeCart} from '../../slices/cartSlice';
 import {Styles} from './CartCard.styles';
-import {s} from 'react-native-size-matters';
+import {TCartCardProps} from './CartCard.types';
 
-interface CartCardProps {
-  title: string;
-  price: string;
-  img: ImageSourcePropType;
-}
-const CartCard = (props: CartCardProps) => {
+const CartCard = (props: TCartCardProps) => {
+  const dispatch = useAppDispatch();
   return (
     <View style={Styles.card}>
-      <Image
-        source={props.img}
-        resizeMode="cover"
-        style={{
-          width: s(69),
-          height: s(69),
-          borderRadius: s(120),
-          backgroundColor: 'red',
-          //   margin,
-        }}
-      />
+      <Image source={{uri: props.img}} resizeMode="cover" style={Styles.img} />
       <View style={Styles.foodHeading}>
         <Text style={Styles.textH}>{props.title}</Text>
-        <Text style={Styles.price}>
-          {'Rs '}
-          {props.price}
-        </Text>
+        <Text style={Styles.price}>{props.price}</Text>
       </View>
       <View style={Styles.qtyContainer}>
-        <Text style={Styles.qtyText}>-</Text>
-        <Text style={Styles.qtyText}>1</Text>
-        <Text style={Styles.qtyText}>+</Text>
+        <Pressable
+          onPress={() => {
+            dispatch(
+              removeCart({
+                price: props.price,
+                qty: 1,
+                title: props.title,
+                img: props.img,
+              }),
+            );
+          }}>
+          <Text style={Styles.qtyText}>-</Text>
+        </Pressable>
+
+        <Text style={Styles.qtyText}>{props.qty}</Text>
+        <Pressable
+          onPress={() => {
+            dispatch(addCart({price: props.price, qty: 1, title: props.title}));
+          }}>
+          <Text style={Styles.qtyText}>+</Text>
+        </Pressable>
       </View>
     </View>
   );
