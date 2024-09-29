@@ -19,6 +19,8 @@ export const Styles = StyleSheet.create({
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
   },
+  mTop:{marginTop: s(26)},
+  margin:{marginTop: s(46)},
   img: {width: s(140), height: s(140)},
   selectView: {
     position: 'absolute',

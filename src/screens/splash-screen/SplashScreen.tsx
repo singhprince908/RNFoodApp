@@ -1,10 +1,8 @@
-import {Image, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {Styles} from './SplashScreen.styles';
-import {chefHat, imgIntro} from '../../assets';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-// import {palette} from '../../assets/palette/palette';
-
+import {chefHat, imgIntro} from '../../assets';
+import {Styles} from './SplashScreen.styles';
 const SplashScreen = () => {
   const navigation = useNavigation();
   return (

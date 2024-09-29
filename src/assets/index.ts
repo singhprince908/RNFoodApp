@@ -17,6 +17,8 @@ import StickyNote from './svg/ic_outline-sticky-note-2';
 import Buy from './svg/icons8_buy';
 import Security from './svg/whh_securityalt';
 import RightArrow from './svg/right-arrow';
+import ShoppingCart from './svg/shopping_cart';
+import BackIcon from './svg/chevron-left';
 export {
   chefHat,
   cc,
@@ -37,4 +39,6 @@ export {
   Buy,
   Security,
   RightArrow,
+  ShoppingCart,
+  BackIcon,
 };

@@ -1,7 +1,5 @@
-import {ImageSourcePropType} from 'react-native';
-
 export type TCardProps = {
-  img: ImageSourcePropType;
+  img: string;
   price: string;
   title: string;
 };

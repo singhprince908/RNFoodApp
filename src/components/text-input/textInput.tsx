@@ -25,6 +25,7 @@ const TextInputCustom = ({
 
       <TextInput
         onChangeText={onChangeText}
+        value={value}
         style={Styles.textInput}
         placeholder={placeholder}
         textContentType="password"
